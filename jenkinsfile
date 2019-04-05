@@ -15,4 +15,8 @@ stage("Deploy")
 {
     echo "Deploy completed"
 }
+stage("Exec")
+{
+echo "Execution completed"
+}
 }
