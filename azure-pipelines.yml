@@ -7,8 +7,8 @@ resources:
     name: noudysri/jpetjava
 
   - repository: mywork6
-    type: git
-    endpoint: Bitbucket
+    type: bitbucket
+    endpoint: venkateshnoudy6
     name: mywork6/mysamplerepo
 
   # - repository: MyAzureReposGitRepository # In a different organization
