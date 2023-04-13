@@ -23,9 +23,9 @@ pool:
 
 steps:
 - checkout: self
-- checkout: mysamplerepo
-- checkout: noudysri
-# - checkout: MyAzureReposGitRepository
+# - checkout: mysamplerepo
+# - checkout: noudysri
+# # - checkout: MyAzureReposGitRepository
 
 - script: dir $(Build.SourcesDirectory)
 
