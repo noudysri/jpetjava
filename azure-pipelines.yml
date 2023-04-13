@@ -1,37 +1,66 @@
 # Maven
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'install'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-- task: MavenAuthenticate@0
-  inputs:
-    artifactsFeeds: 'Demo'
-- task: SonarQubePostTest@1
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+resources:
+  repositories:
+  - repository: noudysri # The name used to reference this repository in the checkout step
+    type: github
+    endpoint: MyGitHubServiceConnection
+    name: noudysri/jpetjava
+  - repository: mywork6
+    type: bitbucket
+    endpoint: MyBitbucketServiceConnection
+    name: mywork6/myrepo6
+  # - repository: MyAzureReposGitRepository # In a different organization
+  #   endpoint: MyAzureReposGitServiceConnection
+  #   type: git
+  #   name: mywork6/myrepo6o
 
 trigger:
-- master
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+- checkout: self
+- checkout: mywork6
+- checkout: noudysri
+- checkout: MyAzureReposGitRepository
+
+- script: dir $(Build.SourcesDirectory)
+
+# - task: Maven@3
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     goals: 'install'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#     javaHomeOption: 'JDKVersion'
+#     mavenVersionOption: 'Default'
+#     mavenAuthenticateFeed: false
+#     effectivePomSkip: false
+#     sonarQubeRunAnalysis: false
+# - task: MavenAuthenticate@0
+#   inputs:
+#     artifactsFeeds: 'Demo'
+# - task: SonarQubePostTest@1
+# # Build your Java project and run tests with Apache Maven.
+# # Add steps that analyze code, save build artifacts, deploy, and more:
+# # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+# trigger:
+# - master
+
+# pool:
+#   vmImage: 'ubuntu-latest'
+
+# steps:
+# - task: Maven@3
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     mavenOptions: '-Xmx3072m'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.8'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#     goals: 'package'
