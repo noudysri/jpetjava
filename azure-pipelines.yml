@@ -6,9 +6,10 @@ resources:
     endpoint: noudysri
     name: noudysri/jpetjava
   - repository: mysamplerepo
-    type: git
+    type: bitbucket
     endpoint: bitbucket
     name: mywork6/mysamplerepo
+
   # - repository: MyAzureReposGitRepository # In a different organization
   #   endpoint: MyAzureReposGitServiceConnection
   #   type: git
