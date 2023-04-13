@@ -7,7 +7,7 @@ resources:
     name: noudysri/jpetjava
   - repository: mywork6
     type: bitbucket
-    endpoint: Gitconnection1
+    endpoint: Git connection 1
     name: mywork6/myrepo6
   # - repository: MyAzureReposGitRepository # In a different organization
   #   endpoint: MyAzureReposGitServiceConnection
