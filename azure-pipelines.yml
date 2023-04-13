@@ -3,11 +3,11 @@ resources:
   repositories:
   - repository: noudysri # The name used to reference this repository in the checkout step
     type: github
-    endpoint: MyGitHubServiceConnection
+    endpoint: noudysri
     name: noudysri/jpetjava
   - repository: mywork6
     type: bitbucket
-    endpoint: MyBitbucketServiceConnection
+    endpoint: Gitconnection1
     name: mywork6/myrepo6
   # - repository: MyAzureReposGitRepository # In a different organization
   #   endpoint: MyAzureReposGitServiceConnection
@@ -24,7 +24,7 @@ steps:
 - checkout: self
 - checkout: mywork6
 - checkout: noudysri
-- checkout: MyAzureReposGitRepository
+# - checkout: MyAzureReposGitRepository
 
 - script: dir $(Build.SourcesDirectory)
 
