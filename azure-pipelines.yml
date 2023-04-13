@@ -23,7 +23,7 @@ pool:
 
 steps:
 - checkout: self
-- checkout: mywork6
+- checkout: mysamplerepo
 - checkout: noudysri
 # - checkout: MyAzureReposGitRepository
 
