@@ -7,7 +7,7 @@ resources:
     name: noudysri/jpetjava
 
   - repository: mywork6
-    type: Bitbucket
+    type: git
     endpoint: Bitbucket
     name: mywork6/mysamplerepo
 
