@@ -18,7 +18,7 @@
               inputs:
                 command: 'install'
                 verbose: false
-              condition: succeeded()
+            # condition: succeeded()
             - script: |
                 npm ci
                 npm run bootstrap
