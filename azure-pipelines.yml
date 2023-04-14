@@ -29,7 +29,7 @@ steps:
 # # - checkout: MyAzureReposGitRepository
 
 - script: dir $(Build.SourcesDirectory)
-- script: dir $(Build.SourcesDirectory)
+- script: ls
 
 # - task: Maven@3
 #   inputs:
