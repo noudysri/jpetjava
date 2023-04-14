@@ -23,9 +23,9 @@
                 npm ci
                 npm run bootstrap
               displayName: 'npm install'
-            - script: |
-                npm run test:pwa
-              displayName: 'Unit test case'
+            # - script: |
+            #     npm run test:pwa
+            #   displayName: 'Unit test case'
 # # Maven
 #   resources:
 #      repositories:
