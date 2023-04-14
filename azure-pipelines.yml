@@ -23,7 +23,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- checkout: jpetjava
+#- checkout: jpetjava
 - checkout: gs-spring-boot
 # - checkout: noudysri
 # # - checkout: MyAzureReposGitRepository
