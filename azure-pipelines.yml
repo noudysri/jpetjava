@@ -26,31 +26,31 @@
             - script: |
                 npm run test:pwa
               displayName: 'Unit test case'
-# Maven
-  resources:
-     repositories:
-     - repository: jpetjave # The name used to reference this repository in the checkout step
-       type: github
-       endpoint: noudysri
-       name: noudysri/jpetjava
+# # Maven
+#   resources:
+#      repositories:
+#      - repository: jpetjave # The name used to reference this repository in the checkout step
+#        type: github
+#        endpoint: noudysri
+#        name: noudysri/jpetjava
 
-     - repository: gs-spring-boot
-       type: github
-       endpoint: noudysri
-       name: noudysri/gs-spring-boot
+#      - repository: gs-spring-boot
+#        type: github
+#        endpoint: noudysri
+#        name: noudysri/gs-spring-boot
 
-      # - repository: MyAzureReposGitRepository # In a different organization
-      #   endpoint: MyAzureReposGitServiceConnection
-      #   type: git
-      #   name: mywork6/myrepo6o
+#       # - repository: MyAzureReposGitRepository # In a different organization
+#       #   endpoint: MyAzureReposGitServiceConnection
+#       #   type: git
+#       #   name: mywork6/myrepo6o
 
-  - stage:deploy.-
-        jobs:
-          -job
-           steps:
-          #- checkout: jpetjava
-           - checkout: gs-spring-boot
-          # - checkout: noudysri
-          # # - checkout: MyAzureReposGitRepository
+#   - stage:deploy.-
+#         jobs:
+#           -job
+#            steps:
+#           #- checkout: jpetjava
+#            - checkout: gs-spring-boot
+#           # - checkout: noudysri
+#           # # - checkout: MyAzureReposGitRepository
 
-          - script: dir $(Build.SourcesDirectory)
+#           - script: dir $(Build.SourcesDirectory)
