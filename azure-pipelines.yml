@@ -1,7 +1,7 @@
 # Maven
 resources:
   repositories:
-  - repository: noudysri # The name used to reference this repository in the checkout step
+  - repository: jpetjave # The name used to reference this repository in the checkout step
     type: github
     endpoint: noudysri
     name: noudysri/jpetjava
