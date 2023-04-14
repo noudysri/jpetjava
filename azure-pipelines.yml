@@ -24,7 +24,7 @@ pool:
 
 steps:
 - checkout: self
-- checkout: jpetjava
+#- checkout: jpetjava
 # - checkout: noudysri
 # # - checkout: MyAzureReposGitRepository
 
