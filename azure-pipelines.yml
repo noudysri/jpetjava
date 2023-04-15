@@ -16,19 +16,31 @@ stages:
           inputs:
             versionSpec: '14.19.3'
           displayName: 'Install Node.js'
-
+  - stage:
+    jobs:
+      - job: 
+        steps:
         - script: |
             echo Hi
           displayName: 'npm install'
-          
+  - stage:
+    jobs:
+      - job: 
+        steps:         
         - script: |
             echo hello
           displayName: 'Check Linting'
-
+  - stage:
+    jobs:
+      - job: 
+        steps:
         - script: |
             echo how r u
           displayName: 'Build'
-
+  - stage:
+    jobs:
+      - job: 
+        steps:
         - script: |
             echo am fine
           displayName: Output Value of Secret Keys
