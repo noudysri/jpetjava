@@ -1,56 +1,100 @@
 
-  trigger: none
-  pr: none
 
-  stages:
-    - stage: Build_Test
-      jobs:
-        #During build stage we install node.js of version '14.19.1',npm of version '6.14.15',lerna bootstrap and enabling the unit test using lerna run test command
-        - job: Installer
-          steps:
-            - checkout: self
-            - task: NodeTool@0
-              inputs:
-                versionSpec: '14.19.1'
-              displayName: 'Install Node.js'
-            - task: Npm@1
-              displayName: Npm install
-              inputs:
-                command: 'install'
-                verbose: false
-            # condition: succeeded()
-            - script: |
-                npm ci
-                npm run bootstrap
-              displayName: 'npm install'
-            # - script: |
-            #     npm run test:pwa
-            #   displayName: 'Unit test case'
-# # Maven
-#   resources:
-#      repositories:
-#      - repository: jpetjave # The name used to reference this repository in the checkout step
-#        type: github
-#        endpoint: noudysri
-#        name: noudysri/jpetjava
+name: $(Date:yyyyMMdd)$(Rev:.r)
 
-#      - repository: gs-spring-boot
-#        type: github
-#        endpoint: noudysri
-#        name: noudysri/gs-spring-boot
+trigger: none
 
-#       # - repository: MyAzureReposGitRepository # In a different organization
-#       #   endpoint: MyAzureReposGitServiceConnection
-#       #   type: git
-#       #   name: mywork6/myrepo6o
+pool:
+  vmImage: ubuntu-latest
 
-#   - stage:deploy.-
-#         jobs:
-#           -job
-#            steps:
-#           #- checkout: jpetjava
-#            - checkout: gs-spring-boot
-#           # - checkout: noudysri
-#           # # - checkout: MyAzureReposGitRepository
+stages:
+  - stage: 
+    jobs:
+      - job: 
+        steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.19.3'
+          displayName: 'Install Node.js'
 
-#           - script: dir $(Build.SourcesDirectory)
+        - script: |
+            echo Hi
+          displayName: 'npm install'
+          
+        - script: |
+            echo hello
+          displayName: 'Check Linting'
+
+        - script: |
+            echo how r u
+          displayName: 'Build'
+
+        - script: |
+            echo am fine
+          displayName: Output Value of Secret Keys
+          # env:
+          #   CLIENT_ID: $(client_ID)
+
+        - script: |
+            #sfcc-ci client:auth $env:CLIENT_ID $env:CLIENT_SECRET
+            echo awesome
+          displayName: 'Deploy'
+          # env:
+          #   CLIENT_ID: $(client_ID)
+          #   CLIENT_SECRET: $(client_SECRET)
+
+#   trigger: none
+#   pr: none
+
+#   stages:
+#     - stage: Build_Test
+#       jobs:
+#         #During build stage we install node.js of version '14.19.1',npm of version '6.14.15',lerna bootstrap and enabling the unit test using lerna run test command
+#         - job: Installer
+#           steps:
+#             - checkout: self
+#             - task: NodeTool@0
+#               inputs:
+#                 versionSpec: '14.19.1'
+#               displayName: 'Install Node.js'
+#             - task: Npm@1
+#               displayName: Npm install
+#               inputs:
+#                 command: 'install'
+#                 verbose: false
+#             # condition: succeeded()
+#             - script: |
+#                 npm ci
+#                 npm run bootstrap
+#               displayName: 'npm install'
+#             # - script: |
+#             #     npm run test:pwa
+#             #   displayName: 'Unit test case'
+# # # Maven
+# #   resources:
+# #      repositories:
+# #      - repository: jpetjave # The name used to reference this repository in the checkout step
+# #        type: github
+# #        endpoint: noudysri
+# #        name: noudysri/jpetjava
+
+# #      - repository: gs-spring-boot
+# #        type: github
+# #        endpoint: noudysri
+# #        name: noudysri/gs-spring-boot
+
+# #       # - repository: MyAzureReposGitRepository # In a different organization
+# #       #   endpoint: MyAzureReposGitServiceConnection
+# #       #   type: git
+# #       #   name: mywork6/myrepo6o
+
+# #   - stage:deploy.-
+# #         jobs:
+# #           -job
+# #            steps:
+# #           #- checkout: jpetjava
+# #            - checkout: gs-spring-boot
+# #           # - checkout: noudysri
+# #           # # - checkout: MyAzureReposGitRepository
+
+# #           - script: dir $(Build.SourcesDirectory)
