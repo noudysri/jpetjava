@@ -10,7 +10,7 @@ pool:
 stages:
   - stage: 
     jobs:
-      - job: 
+      - job: installNodeJs
         steps:
         - task: NodeTool@0
           inputs:
@@ -18,7 +18,7 @@ stages:
           displayName: 'Install Node.js'
   - stage:
     jobs:
-      - job: 
+      - job: NPMInstall
         steps:
         - checkout: none
         - script: |
@@ -26,21 +26,21 @@ stages:
           displayName: 'npm install'
   - stage:
     jobs:
-      - job: 
+      - job: checkLinting
         steps:         
         - script: |
             echo hello
           displayName: 'Check Linting'
   - stage:
     jobs:
-      - job: 
+      - job: Build
         steps:
         - script: |
             echo how r u
           displayName: 'Build'
   - stage:
     jobs:
-      - job: 
+      - job: secretKeys
         steps:
         - script: |
             echo am fine
@@ -51,6 +51,8 @@ stages:
             #sfcc-ci client:auth $env:CLIENT_ID $env:CLIENT_SECRET
             echo awesome
           displayName: 'Deploy'
+
+
           # env:
           #   CLIENT_ID: $(client_ID)
           #   CLIENT_SECRET: $(client_SECRET)
