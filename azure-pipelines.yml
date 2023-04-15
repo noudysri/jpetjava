@@ -7,56 +7,71 @@ trigger: none
 pool:
   vmImage: ubuntu-latest
 
-stages:
-  - stage: Install_NodeJs
-    jobs:
-      - job: installNodeJs
-        steps:
-        - task: NodeTool@0
-          inputs:
-            versionSpec: '14.19.3'
-          displayName: 'Install Node.js'
-  - stage: Npm_Install
-    jobs:
-      - job: NPMInstall
-        steps:
-        - checkout: none
-        - script: |
-            echo Hi
-          displayName: 'npm install'
-  - stage: Check_Lintin
-    jobs:
-      - job: checkLinting
-        steps:         
-        - script: |
-            echo hello
-          displayName: 'Check Linting'
-  - stage: Build
-    jobs:
-      - job: Build
-        steps:
-        - script: |
-            echo how r u
-          displayName: 'Build'
-  - stage: Secret_Keys
-    jobs:
-      - job: secretKeys
-        steps: 
-        - script: |
-            echo am fine
-          displayName: Output Value of Secret Keys
-          # env:
-          #   CLIENT_ID: $(client_ID)
-  - stage: Deploy
-    jobs:
-      - job: Deply
-        steps:
-        - script: |
-            #sfcc-ci client:auth $env:CLIENT_ID $env:CLIENT_SECRET
-            echo awesome
-          displayName: 'Deploy'
+jobs:
+- job: WebApp1
+  displayName: 'Build WebApp1'
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+    - script: |
+        echo "hi bro"
+
+- job: webapp2
+  displayName: 'Build Webapp2'
+  steps:
+    - script: |
+        echo "hiii"
+
+# stages:
+#   - stage: Install_NodeJs
+#     jobs:
+#       - job: installNodeJs
+#         steps:
+#         - task: NodeTool@0
+#           inputs:
+#             versionSpec: '14.19.3'
+#           displayName: 'Install Node.js'
+#   - stage: Npm_Install
+#     jobs:
+#       - job: NPMInstall
+#         steps:
+#         - checkout: none
+#         - script: |
+#             echo Hi
+#           displayName: 'npm install'
+#   - stage: Check_Lintin
+#     jobs:
+#       - job: checkLinting
+#         steps:         
+#         - script: |
+#             echo hello
+#           displayName: 'Check Linting'
+#   - stage: Build
+#     jobs:
+#       - job: Build
+#         steps:
+#         - script: |
+#             echo how r u
+#           displayName: 'Build'
+#   - stage: Secret_Keys
+#     jobs:
+#       - job: secretKeys
+#         steps: 
+#         - script: |
+#             echo am fine
+#           displayName: Output Value of Secret Keys
+#           # env:
+#           #   CLIENT_ID: $(client_ID)
+#   - stage: Deploy
+#     jobs:
+#       - job: Deply
+#         steps:
+#         - script: |
+#             #sfcc-ci client:auth $env:CLIENT_ID $env:CLIENT_SECRET
+#             echo awesome
+#           displayName: 'Deploy'
 
 
-          # env:
-          #   CLIENT_ID: $(client_ID)
-          #   CLIENT_SECRET: $(client_SECRET)
+#           # env:
+#           #   CLIENT_ID: $(client_ID)
+#           #   CLIENT_SECRET: $(client_SECRET)
