@@ -8,7 +8,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-  - stage: 
+  - stage: Install_NodeJs
     jobs:
       - job: installNodeJs
         steps:
@@ -16,7 +16,7 @@ stages:
           inputs:
             versionSpec: '14.19.3'
           displayName: 'Install Node.js'
-  - stage:
+  - stage: Npm_Install
     jobs:
       - job: NPMInstall
         steps:
@@ -24,7 +24,7 @@ stages:
         - script: |
             echo Hi
           displayName: 'npm install'
-  - stage:
+  - stage: Check_Lintin
     jobs:
       - job: checkLinting
         steps:         
