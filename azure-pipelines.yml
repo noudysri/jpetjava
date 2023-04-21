@@ -32,6 +32,7 @@ stages:
             echo hello
           displayName: 'Check Linting'
   - stage: Build
+    condition: and(succeeded('Npm_Install'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     jobs:
       - job: Build
         steps:
