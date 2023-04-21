@@ -3,7 +3,12 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)
 
 trigger: none
-
+  batch: true
+  branches: 
+    include: 
+      - master
+    exclude: 
+      - test/*
 pool:
   vmImage: ubuntu-latest
  
